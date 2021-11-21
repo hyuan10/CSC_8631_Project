@@ -16,6 +16,11 @@ df_question_response <- list.files(path="~/Documents/CSC_8631_Project/CSC_8631_A
 
 # Combines the Video Stats into one Data Frame
 # Video stats will require additional analysis as each individual run has their own stats
-df_video_states <- list.files(path="~/Documents/CSC_8631_Project/CSC_8631_Analysis/data/Video Stats", full.names = TRUE) %>% 
+df_video_stats <- list.files(path="~/Documents/CSC_8631_Project/CSC_8631_Analysis/data/Video Stats", full.names = TRUE) %>% 
   lapply(read_csv) %>% 
   bind_rows 
+
+    # Sort by Step Position in Video Stats
+    df_video_stats <- df_video_stats[
+      with(df_video_stats, order(step_position)),
+    ]

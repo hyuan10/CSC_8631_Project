@@ -1,8 +1,14 @@
-library('ProjectTemplate')
+#Setting the Correct Working Directory
+setwd("~/Documents/CSC_8631_Project/CSC_8631_Analysis")
+
+# Loading the Library and Project
+library(ProjectTemplate)
 load.project()
 
-for (dataset in project.info$data)
-{
-  message(paste('Showing top 5 rows of', dataset))
-  print(head(get(dataset)))
-}
+# # Sort by Step Position in Video Stats #Added to Preprocess
+# 
+# df_video_stats[
+#        with(df_video_stats, order(step_position)),
+#    ]
+# 
+# view(df_video_stats)
