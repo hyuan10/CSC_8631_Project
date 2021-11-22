@@ -14,7 +14,7 @@ df_vs_150=filter(df_video_stats, step_position == 1.50)
 df_vs_210=filter(df_video_stats, step_position == 2.10)
 
 df_vs_211=filter(df_video_stats, step_position == 2.11)
-li
+
 df_vs_217=filter(df_video_stats, step_position == 2.17)
 
 df_vs_240=filter(df_video_stats, step_position == 2.40)
