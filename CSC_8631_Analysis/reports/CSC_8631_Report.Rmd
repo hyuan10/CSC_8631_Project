@@ -1,5 +1,5 @@
 ---
-title: "CSC_8631_Report"
+title: "CSC 8631 Report"
 author: "Harvey"
 date: "24/11/2021"
 output: pdf_document
@@ -15,22 +15,20 @@ library(ProjectTemplate)
 load.project()
 ```
 
-## R Markdown
+## Aim and Objective
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+The aim of this analysis is to explore and see if there is any correlation between the time spent watching the course videos and the scores the student receives, collectively as a group, over the section. 
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+In addition to this, we will look to find the students that are having the hardest time with the multiple choice questions and look to provide extra support/help and to intervene at the earliest stage possible by reviewing the number of times the student has gotten the incorrect score as part of the question response.
 
-```{r cars}
-summary(cars)
-```
 
-## Including Plots
 
-You can also embed plots, for example:
+<!-- ## Including Plots -->
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
+<!-- You can also embed plots, for example: -->
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+<!-- ```{r pressure, echo=FALSE} -->
+<!-- plot(pressure) -->
+<!-- ``` -->
+
+<!-- Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot. -->
