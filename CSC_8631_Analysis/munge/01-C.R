@@ -14,3 +14,9 @@ df_vs_0_viewed_100 = data.frame(viewed_100 = c(mean(df_vs_110$viewed_100),mean(d
 
 #Using cbind() function to append new data frames to old data frames
 df_vs_total <- cbind(df_vs_0_step, df_vs_0_title, df_vs_0_duration, df_vs_0_views, df_vs_0_viewed_5, df_vs_0_viewed_25, df_vs_0_viewed_50, df_vs_0_viewed_75, df_vs_0_viewed_100)
+
+
+#Filter df_vs_total by week
+df_vs_w1=filter(df_vs_total, between(step_position, 1, 1.90))
+df_vs_w2=filter(df_vs_total, between(step_position, 2, 2.90))
+df_vs_w3=filter(df_vs_total, between(step_position, 3, 3.90))
