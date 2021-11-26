@@ -1,5 +1,5 @@
 #Filter data based on step position to isolate runs from df_video_stats
-library(dplyr)
+
 
 df_vs_110=filter(df_video_stats, step_position == 1.10)
 

@@ -35,4 +35,3 @@ df_video_stats <- list.files(path="~/Documents/CSC_8631_Project/CSC_8631_Analysi
                                   'viewed_hd','viewed_5','viewed_10','viewed_25','viewed_50','viewed_75','viewed_95','viewed_100',
                                   'console','desktop','mobile','tv','tablet','unknown','EU','oceania','asia','NA','SA','africa','antarctica')
   
-    
