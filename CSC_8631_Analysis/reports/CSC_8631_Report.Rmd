@@ -44,7 +44,7 @@ PT also stores pre-process scripts, which will run as soon as the project has be
 ***dplyr version 1.0.7 ***
 
 The dplyr library allows for the user to use a set of verbs to write code for common data manipulation steps. It allows the user to use familiar words when scripting analysis and pre-processing scripts (such as filter), both for easy understanding of the code and proof reading (Hadley Wickham, n.d.).
-
+\newpage
 
 ***readr version 2.0.1 ***
 
@@ -57,13 +57,48 @@ The readr library provides for an easy way to read the csv files that are being 
 As part of this project, there were a number of different data sets which accompanied each run of the FutureLearn session ranging from Enrolments to Weekly Survey Responses of the students. 
 However, as the aim and objective of this analysis is to identify if there is a correlation for time spent watching the videos with the scores students receive, only some of the data provided will be useful to this analysis. Upon inspection of the whole, raw data set, there was a number of different data sets which were not pertinent to this investigation. Within some data sets, columns would not be populated, whereas others were void of data. In some instances, the run did not include a data set such as video stats and team members from the first run. 
 
-With this in mind, it was decided that the "Enrolments", "Question Response" and "Video Stats" from run 3 to 7 would be used for the analysis as it was only these runs which had the complete data that would be relevant. As such, there would be 5 data sets for Enrolments, 5 for Video Stats and 5 for Question Responses.
+With this in mind, it was decided that the "Enrolments", "Question Response" and "Video Stats" from run 3 to 7 would be used for the analysis as it was only these runs which had the complete data that would be relevant. As such, there would be 5 data sets for Enrolments, 5 for Video Stats and 5 for Question Responses. These data sets were chosen for their representation of the knowledge of the participants. The question response data would allow for the analysis of the ratio of correct answers to false answers and the video stats data set would allow for analysis of the percentages of the course videos watched. Finally, the enrolments data will allow for the analysis to learn how many people are interacting with the videos and multiple choice questions.
 
-With this being the raw FutureLearn data, some data manipulation and transformation was required to to ready it for analysis.
+With this being the raw FutureLearn data, some data manipulation and transformation was required to to ready it for analysis. In the first instance, all data sets were combined into one data set according to their categorisation producing three data frames, one for question response, video stats and enrolments. This will allow easier analysis of the runs as a whole. The column names of the data sets were also slightly adjusted for easier human reading. 
+
+From here, individual video stats were broken down into each step and either summed or averaged depending on the type of data that the column was populated with. This creates a combined version of the video stats data set of all 5 runs as a collective. This was then filtered into individual data frames for each week to be analysed against the question response. As the question response data didn't require columns to be either summed or averaged, there was no need to sum or average the combined data and just filter by week. 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
 ## *Bibliography*
 
 Darke, P. (n.d.). Reproducible data science techniques in actuarial work. Retrieved from https://philipdarke.com/reproducible-actuarial-work/exercise1 (Last accessed 27th of November 2021)
