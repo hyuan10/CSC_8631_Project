@@ -50,6 +50,9 @@ The dplyr library allows for the user to use a set of verbs to write code for co
 
 The readr library provides for an easy way to read the csv files that are being used as part of this analysis. As well as being easier to for users to understand and read the data, it also makes analysis more reproducible as base R functions inherit behaviours from the operating system and environment variables, as such, importing code from one environment to another using readr will work without issue (Grolemund, 2016).
 
+***ggplot2 version 3.3.5***
+
+
 
 
 ## Data Understanding and Preparation
