@@ -21,11 +21,19 @@ The aim of this analysis is to explore and see if there is any correlation betwe
 
 In addition to this, this analysis will look to find the students that are having/had the hardest time with the multiple choice questions and look to provide extra support and help to intervene at the earliest stage possible by reviewing the number of times the student has gotten the incorrect score as part of the question response.
 
-## Libraries Used
+## Technologies and Libraries Used
 
 Throughout this project, there were a number of different libraries which were used with the main library being "ProjectTemplate".
 
-***ProjectTemplate***
+***R version 4.1.2 ***
+
+R is a language used for statistical computing and graphics. 
+
+***RStudio 2021.09.01 Build 372***
+
+RStudio is an IDE that is used for R. RStudio includes an in-built console and terminal that allows for direct code executing and also a pane which allows for files, plots and packages management. Different libraries can be installed through this pane.
+
+***ProjectTemplate version 0.10.2 ***
 
 ProjectTemplate (PT) is a system that allows the user to automate medial parts of a data analysis project such as the organisation of the project files and processing data (Darke, n.d.).
 
@@ -33,13 +41,16 @@ This project utilises PT heavily to organise and mange the project files through
 
 PT also stores pre-process scripts, which will run as soon as the project has been loaded by PT which is stored in the "munge" folder. Similar to the munge folder, the "src" folder stores scripts that can be manually run.
 
-***dplyr***
+***dplyr version 1.0.7 ***
 
 The dplyr library allows for the user to use a set of verbs to write code for common data manipulation steps. It allows the user to use familiar words when scripting analysis and pre-processing scripts (such as filter), both for easy understanding of the code and proof reading (Hadley Wickham, n.d.).
 
-***readr***
+
+***readr version 2.0.1 ***
 
 The readr library provides for an easy way to read the csv files that are being used as part of this analysis. As well as being easier to for users to understand and read the data, it also makes analysis more reproducible as base R functions inherit behaviours from the operating system and environment variables, as such, importing code from one environment to another using readr will work without issue (Grolemund, 2016).
+
+
 
 ## Data Understanding and Preparation
 
