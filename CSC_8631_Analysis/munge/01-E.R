@@ -1,12 +1,13 @@
 # Counts the number of result inputs for each week
-sum_qr_w1 <- sum(df_qr_w1$result)
-sum_qr_w2 <- sum(df_qr_w2$result)
-sum_qr_w3 <- sum(df_qr_w3$result)
+sum_qr_w1 <- sum(df_qr_w1$week == 1)
+sum_qr_w2 <- sum(df_qr_w2$week == 2)
+sum_qr_w3 <- sum(df_qr_w3$week == 3)
 
 # Sums the number of results in the column which is FALSE for each week
 sum_qr_w1f <- sum(df_qr_w1$result == FALSE)
 sum_qr_w2f <- sum(df_qr_w2$result == FALSE)
 sum_qr_w3f <- sum(df_qr_w3$result == FALSE)
+
 
 # Sum the total number of students
 Total_no_students <- length(df_Enrolments$learner_id)
