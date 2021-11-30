@@ -12,12 +12,12 @@ sum_qr_w2t <- sum(df_qr_w2$result == TRUE)
 sum_qr_w3t <- sum(df_qr_w3$result == TRUE)
 
 # Total Correct and Incoorect as a Percentage
-sum_w1_f = (sum_qr_w1t/sum_qr_w1)*100
-sum_w2_f = (sum_qr_w2t/sum_qr_w2)*100
-sum_w3_f = (sum_qr_w3t/sum_qr_w3)*100
-sum_w1_t = (sum_qr_w1f/sum_qr_w1)*100
-sum_w2_t = (sum_qr_w2f/sum_qr_w2)*100
-sum_w3_t = (sum_qr_w3f/sum_qr_w3)*100
+sum_w1_t = (sum_qr_w1t/sum_qr_w1)*100
+sum_w2_t = (sum_qr_w2t/sum_qr_w2)*100
+sum_w3_t = (sum_qr_w3t/sum_qr_w3)*100
+sum_w1_f = (sum_qr_w1f/sum_qr_w1)*100
+sum_w2_f = (sum_qr_w2f/sum_qr_w2)*100
+sum_w3_f = (sum_qr_w3f/sum_qr_w3)*100
 
 # Sum QR as data Frame
 qr_table = data.frame(Week = c(1,2,3),
@@ -26,6 +26,11 @@ qr_table = data.frame(Week = c(1,2,3),
                       Total_Correct_Percentage = c(sum_w1_t,sum_w2_t,sum_w3_t),
                       Total_Incorrect = c(sum_qr_w1f,sum_qr_w2f,sum_qr_w3f), 
                       Total_Incorrect_Percentage = c(sum_w1_f,sum_w2_f,sum_w3_f))
+
+qr_table_percent = data.frame(
+                              Week = c(1,2,3,1,2,3),
+                              Result_Percent = c(sum_w1_f,sum_w2_f,sum_w3_f,sum_w1_t,sum_w2_t,sum_w3_t),
+                              Result = c("Incorrect","Incorrect","Incorrect","Correct","Correct","Correct"))
                         
                         
 # Sum the total number of students
