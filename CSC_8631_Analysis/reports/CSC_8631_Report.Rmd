@@ -52,7 +52,7 @@ The readr library provides for an easy way to read the csv files that are being 
 
 ***ggplot2 version 3.3.5***
 
-hthgth 
+ggplot is a system for creating graphics which is provided by the user which allows for said user to iteratively add new layers, components and functionality. 
 
 
 ## Data Understanding and Preparation
