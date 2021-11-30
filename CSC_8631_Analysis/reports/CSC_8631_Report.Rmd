@@ -73,6 +73,9 @@ In addition to the data frames, a number of different values and variables were 
 \newpage
 ## Analysis
 
+As the aim of this analysis is to explore is there is any correlation between time spent watching the course videos and the scores that the student receive against the multiple choice questions, it was decided that, in the first instance, a graph would be created to compare the percentage of video completed by the students against the portion of the video by week. This will allow for visual representation of how much the videos the students are completing and for comparison for the ratio of students that receive a correct mark.
+
+
 ```{r ,echo=FALSE}
 
 colMeans_vs_w1 = data.frame(Percentage =c (5,25,50,75,100), "View_Percentage_Mean" = c(mean(df_vs_w1$viewed_5),mean(df_vs_w1$viewed_25),mean(df_vs_w1$viewed_50),mean(df_vs_w1$viewed_75),mean(df_vs_w1$viewed_100)))
@@ -91,9 +94,8 @@ Colours <-c("Week 1" = "dark green", "Week 2" = "orange", "Week 3" = "light blue
 
 
 P <- ggplot() +
-  ggtitle("Percentage of Video watched by Students against Video Progress") +
-  # xlab("Video Portion") + ylab("Mean of Percentage viewed") + 
-  labs(x="Video Progress (%)", y= "Mean of Percentage of Video watched by Students", colour="Legend")+
+  ggtitle("Percentage of Views at Video Progress vs Video Progress") +
+  labs(x="Video Progress (%)", y= "Percentage of Views at Video Progress", colour="Legend")+
   xlim(0, 100)+ ylim(50, 80)+
   geom_point(data=colMeans_vs_w1, aes(x=Percentage, y=View_Percentage_Mean, colour="Week 1")) +
   geom_point(data=colMeans_vs_w2, aes(x=Percentage, y=View_Percentage_Mean, colour="Week 2")) +
@@ -109,11 +111,37 @@ P
 ```
 
 
+The plot above shows that the mean of the percentage watched by students compared to the video progress, which is indicative of how much of the students are watching the videos to completion. From the trend lines on the graph, it is evident that the videos from week 2 were watched to completion the most in comparison to week 1 and 3, ranking rank 3 and 1 respectively. This is based off the assumption that the video stats data provided by FutureLearn does not contain students that watched the videos more than once. By assuming the videos were not watched multiple times by the users, the assumption of a higher portion of the students are watching the videos which allows for more straight forward comparison when  relating this data to the data from the question responses. This graph also allows us to see that there was a relatively large drop off in video completions, approximately 12.5%, in week 1 and 3 from 75% to 100%. 
+
+```{r, echo=FALSE}
+Grouped <- cbind(colMeans_vs_w1,colMeans_vs_w2$View_Percentage_Mean,colMeans_vs_w3$View_Percentage_Mean)
+colnames(Grouped) <- c("Video Progress", "Percentage Views W1", "Percentage Views W2", "Percentage Views W3")
+Grouped
+```
+
+The input data reaffirms and shows that there is has been a drop off in video completion in week 1 and 3 whereas the video completion stats remain high for week 2.
+
+```{r, echo=FALSE}
+qr_table_percent = data.frame(
+                              Week = c(1,2,3,1,2,3),
+                              Result_Percent = c(sum_w1_f,sum_w2_f,sum_w3_f,sum_w1_t,sum_w2_t,sum_w3_t),
+                              Result = c("Incorrect","Incorrect","Incorrect","Correct","Correct","Correct"))
+                        
+                     
+
+QR <- ggplot(data=qr_table_percent, aes(x=Week, y=Result_Percent, fill=Result)) +
+      geom_col()+
+      theme_bw()+
+      scale_fill_manual(values = c("#34eb6b", "#eb3446"))+
+      ggtitle("Percentage of Correct and Incorrect Answers by Week")+
+      labs(y= "Percentage")
 
 
+QR    
+```
 
 
-
+What this graph and data does not show, however, is how many students did watch any portion of the video. 
 
 
 
