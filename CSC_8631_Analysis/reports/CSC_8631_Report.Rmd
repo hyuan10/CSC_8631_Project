@@ -113,6 +113,8 @@ P
 
 The plot above shows that the mean of the percentage watched by students compared to the video progress, which is indicative of how much of the students are watching the videos to completion. From the trend lines on the graph, it is evident that the videos from week 2 were watched to completion the most in comparison to week 1 and 3, ranking rank 3 and 1 respectively. This is based off the assumption that the video stats data provided by FutureLearn does not contain students that watched the videos more than once. By assuming the videos were not watched multiple times by the users, the assumption of a higher portion of the students are watching the videos which allows for more straight forward comparison when  relating this data to the data from the question responses. This graph also allows us to see that there was a relatively large drop off in video completions, approximately 12.5%, in week 1 and 3 from 75% to 100%. 
 
+<!-- What this graph and data does not show, however, is how many students did watch any portion of the video.  -->
+
 ```{r, echo=FALSE}
 Grouped <- cbind(colMeans_vs_w1,colMeans_vs_w2$View_Percentage_Mean,colMeans_vs_w3$View_Percentage_Mean)
 colnames(Grouped) <- c("Video Progress", "Percentage Views W1", "Percentage Views W2", "Percentage Views W3")
@@ -141,7 +143,18 @@ QR
 ```
 
 
-What this graph and data does not show, however, is how many students did watch any portion of the video. 
+```{r, echo=FALSE}
+qr_table
+
+```
+
+
+The above stacked bar chart shows the percentage of correct and incorrect answer against the week progression. From this graph, the data shows an increasing amount of incorrect results as the weeks progress. This could be a result of the course content becoming increasing more difficult as the weeks progress.
+
+However, comparing this data to the previous plot, the data implies that the percentage of views at the video completion does not affect the results of the multiple choice question. There are a number of reasons as to why this may be the case. 
+
+
+
 
 
 
