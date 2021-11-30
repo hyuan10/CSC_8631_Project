@@ -31,7 +31,11 @@ qr_table_percent = data.frame(
                               Week = c(1,2,3,1,2,3),
                               Result_Percent = c(sum_w1_f,sum_w2_f,sum_w3_f,sum_w1_t,sum_w2_t,sum_w3_t),
                               Result = c("Incorrect","Incorrect","Incorrect","Correct","Correct","Correct"))
-                        
+
+# Renaming columns for easy understanding
+colnames(qr_table) <- c("Week","Total Responses", "Correct","Correct (%)","Incorrect","Incorrect (%)")
+
+                       
                         
 # Sum the total number of students
 Total_no_students <- length(df_Enrolments$learner_id)
