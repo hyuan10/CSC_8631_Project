@@ -26,7 +26,7 @@ P
 
 
 QR <- ggplot(data=qr_table_percent, aes(x=Week, y=Result_Percent, fill=Result)) +
-      geom_col(stat="identity")+
+      geom_col()+
       theme_bw()+
       scale_fill_manual(values = c("#34eb6b", "#eb3446"))+
       ggtitle("Percentage of Correct and Incorrect Answers by Week")+
