@@ -52,7 +52,7 @@ The readr library provides for an easy way to read the csv files that are being 
 
 ***ggplot2 version 3.3.5***
 
-ggplot is a system for creating graphics which is provided by the user which allows for said user to iteratively add new layers, components and functionality. 
+ggplot is a system for creating graphics (where the data is a selected data frame). The data is either  provided by the user or created in script, which allows for said user to iteratively add new layers, components and functionality. ggplot will be used to demonstrate the analysis as part of this investigation.
 
 
 ## Data Understanding and Preparation
@@ -64,27 +64,49 @@ With this in mind, it was decided that the "Enrolments", "Question Response" and
 
 With this being the raw FutureLearn data, some data manipulation and transformation was required to to ready it for analysis. In the first instance, all data sets were combined into one data set according to their categorisation producing three data frames, one for question response, video stats and enrolments. This will allow easier analysis of the runs as a whole. The column names of the data sets were also slightly adjusted for easier human reading. 
 
-From here, individual video stats were broken down into each step and either summed or averaged depending on the type of data that the column was populated with. This creates a combined version of the video stats data set of all 5 runs as a collective. This was then filtered into individual data frames for each week to be analysed against the question response. As the question response data didn't require columns to be either summed or averaged, there was no need to sum or average the combined data and just filter by week. 
+From here, individual video stats were broken down into each step and either summed or averaged depending on the type of data that the column was populated with. This creates a combined version of the video stats data set of all 5 runs as a collective. This was then filtered into individual data frames for each week to be analysed against the question response. As the question response data didn't require columns to be either summed or averaged, there was no need to sum or average the combined data and just filter by week. With the question response data being broken down into their weeks, the comparison between video stats should be relatively straight forward.
+
+As such, there are three main branches of data that is used are part of this project, the enrolment, video stats and question response data.
+
+In addition to the data frames, a number of different values and variables were created to aide in the process of the analysis such as "Total_no_students" (total number of students enrolled) and "sum_qr_w1" (total number of responses received for week 1 across the question response data frame which is a combination of all 5 runs).
+
+\newpage
+## Analysis
+
+```{r ,echo=FALSE}
+
+colMeans_vs_w1 = data.frame(Percentage =c (5,25,50,75,100), "View_Percentage_Mean" = c(mean(df_vs_w1$viewed_5),mean(df_vs_w1$viewed_25),mean(df_vs_w1$viewed_50),mean(df_vs_w1$viewed_75),mean(df_vs_w1$viewed_100)))
+colMeans_vs_w2 = data.frame(Percentage =c (5,25,50,75,100), "View_Percentage_Mean" = c(mean(df_vs_w2$viewed_5),mean(df_vs_w2$viewed_25),mean(df_vs_w2$viewed_50),mean(df_vs_w2$viewed_75),mean(df_vs_w2$viewed_100)))
+colMeans_vs_w3 = data.frame(Percentage =c (5,25,50,75,100), "View_Percentage_Mean" = c(mean(df_vs_w3$viewed_5),mean(df_vs_w3$viewed_25),mean(df_vs_w3$viewed_50),mean(df_vs_w3$viewed_75),mean(df_vs_w3$viewed_100)))
 
 
+```
 
 
+```{r ,echo=FALSE}
+library(ggplot2)
 
 
+Colours <-c("Week 1" = "dark green", "Week 2" = "orange", "Week 3" = "light blue")
 
 
+P <- ggplot() +
+  ggtitle("Percentage of Video watched by Students against Video Progress") +
+  # xlab("Video Portion") + ylab("Mean of Percentage viewed") + 
+  labs(x="Video Progress (%)", y= "Mean of Percentage of Video watched by Students", colour="Legend")+
+  xlim(0, 100)+ ylim(50, 80)+
+  geom_point(data=colMeans_vs_w1, aes(x=Percentage, y=View_Percentage_Mean, colour="Week 1")) +
+  geom_point(data=colMeans_vs_w2, aes(x=Percentage, y=View_Percentage_Mean, colour="Week 2")) +
+  geom_point(data=colMeans_vs_w3, aes(x=Percentage, y=View_Percentage_Mean, colour="Week 3")) +
+  geom_smooth(data=colMeans_vs_w1,aes(x=Percentage, y=View_Percentage_Mean, colour="Week 1"), formula = y ~ x, method ="lm", se=F) +
+  geom_smooth(data=colMeans_vs_w2,aes(x=Percentage, y=View_Percentage_Mean, colour="Week 2"), formula = y ~ x, method ="lm", se=F)+
+  geom_smooth(data=colMeans_vs_w3,aes(x=Percentage, y=View_Percentage_Mean, colour="Week 3"), formula = y ~ x, method ="lm", se=F)+
+  theme_bw()+
+  scale_color_manual(values = Colours)
 
 
-
-
-
-
-
-
-
-
-
-
+P
+```
 
 
 
