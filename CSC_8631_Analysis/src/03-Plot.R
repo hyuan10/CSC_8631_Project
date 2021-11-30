@@ -4,10 +4,11 @@ library(ggplot2)
 # Combined Plot
 
 Colours <-c("Week 1" = "dark green", "Week 2" = "orange", "Week 3" = "light blue")
-ggplot() +
-  ggtitle("Percentage of Video watched by Students against Video Progress") +
-  # xlab("Video Portion") + ylab("Mean of Percentage viewed") + 
-  labs(x="Video Progress (%)", y= "Mean of Percentage of Video watched by Students", colour="Legend")+
+
+
+P <- ggplot() +
+  ggtitle("Percentage of Views at Video Progress vs Video Progress") +
+  labs(x="Video Progress (%)", y= "Percentage of Views at Video Progress", colour="Legend")+
   xlim(0, 100)+ ylim(50, 80)+
   geom_point(data=colMeans_vs_w1, aes(x=Percentage, y=View_Percentage_Mean, colour="Week 1")) +
   geom_point(data=colMeans_vs_w2, aes(x=Percentage, y=View_Percentage_Mean, colour="Week 2")) +
@@ -18,4 +19,6 @@ ggplot() +
   theme_bw()+
   scale_color_manual(values = Colours)
 
+
+P
 
