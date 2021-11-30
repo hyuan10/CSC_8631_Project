@@ -1,7 +1,7 @@
 # Plots the percentage watched video value against the portion of the video watched
 library(ggplot2)
 
-# Combined Plot
+# Combined Plot for Video Stats
 
 Colours <-c("Week 1" = "dark green", "Week 2" = "orange", "Week 3" = "light blue")
 
@@ -22,3 +22,15 @@ P <- ggplot() +
 
 P
 
+# Plot of Correct and Incorrect answers by Percentage against Week
+
+
+QR <- ggplot(data=qr_table_percent, aes(x=Week, y=Result_Percent, fill=Result)) +
+      geom_col(stat="identity")+
+      theme_bw()+
+      scale_fill_manual(values = c("#34eb6b", "#eb3446"))+
+      ggtitle("Percentage of Correct and Incorrect Answers by Week")+
+      labs(y= "Percentage")
+
+
+QR    
