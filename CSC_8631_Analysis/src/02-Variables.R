@@ -16,3 +16,11 @@ Total_no_students <- length(df_Enrolments$learner_id)
 colMeans_vs_w1 = data.frame(Percentage =c (5,25,50,75,100), "View_Percentage_Mean" = c(mean(df_vs_w1$viewed_5),mean(df_vs_w1$viewed_25),mean(df_vs_w1$viewed_50),mean(df_vs_w1$viewed_75),mean(df_vs_w1$viewed_100)))
 colMeans_vs_w2 = data.frame(Percentage =c (5,25,50,75,100), "View_Percentage_Mean" = c(mean(df_vs_w2$viewed_5),mean(df_vs_w2$viewed_25),mean(df_vs_w2$viewed_50),mean(df_vs_w2$viewed_75),mean(df_vs_w2$viewed_100)))
 colMeans_vs_w3 = data.frame(Percentage =c (5,25,50,75,100), "View_Percentage_Mean" = c(mean(df_vs_w3$viewed_5),mean(df_vs_w3$viewed_25),mean(df_vs_w3$viewed_50),mean(df_vs_w3$viewed_75),mean(df_vs_w3$viewed_100)))
+
+
+# Top 5 students with incorrect inputs
+mode = function(){
+  return(sort(-table(df_qr_w1$learner_id))[1:5])
+}
+
+mode()
