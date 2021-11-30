@@ -20,7 +20,8 @@ sum_w2_t = (sum_qr_w2f/sum_qr_w2)*100
 sum_w3_t = (sum_qr_w3f/sum_qr_w3)*100
 
 # Sum QR as data Frame
-qr_table = data.frame(Total_Responses = c(sum_qr_w1,sum_qr_w2,sum_qr_w3), 
+qr_table = data.frame(Week = c(1,2,3),
+                      Total_Responses = c(sum_qr_w1,sum_qr_w2,sum_qr_w3), 
                       Total_Correct = c(sum_qr_w1t,sum_qr_w2t,sum_qr_w3t), 
                       Total_Correct_Percentage = c(sum_w1_t,sum_w2_t,sum_w3_t),
                       Total_Incorrect = c(sum_qr_w1f,sum_qr_w2f,sum_qr_w3f), 
