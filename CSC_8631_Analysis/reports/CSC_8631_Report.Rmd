@@ -97,9 +97,9 @@ P <- ggplot() +
   ggtitle("Percentage of Views at Video Progress vs Video Progress") +
   labs(x="Video Progress (%)", y= "Percentage of Views at Video Progress", colour="Legend")+
   xlim(0, 100)+ ylim(50, 80)+
-  geom_point(data=colMeans_vs_w1, aes(x=Percentage, y=View_Percentage_Mean, colour="Week 1")) +
-  geom_point(data=colMeans_vs_w2, aes(x=Percentage, y=View_Percentage_Mean, colour="Week 2")) +
-  geom_point(data=colMeans_vs_w3, aes(x=Percentage, y=View_Percentage_Mean, colour="Week 3")) +
+  geom_point(data=colMeans_vs_w1, aes(x=Percentage, y=View_Percentage_Mean, colour="Week 1"), shape= 16) +
+  geom_point(data=colMeans_vs_w2, aes(x=Percentage, y=View_Percentage_Mean, colour="Week 2"), shape= 17) +
+  geom_point(data=colMeans_vs_w3, aes(x=Percentage, y=View_Percentage_Mean, colour="Week 3"), shape= 18) +
   geom_smooth(data=colMeans_vs_w1,aes(x=Percentage, y=View_Percentage_Mean, colour="Week 1"), formula = y ~ x, method ="lm", se=F) +
   geom_smooth(data=colMeans_vs_w2,aes(x=Percentage, y=View_Percentage_Mean, colour="Week 2"), formula = y ~ x, method ="lm", se=F)+
   geom_smooth(data=colMeans_vs_w3,aes(x=Percentage, y=View_Percentage_Mean, colour="Week 3"), formula = y ~ x, method ="lm", se=F)+
@@ -113,7 +113,6 @@ P
 
 The plot above shows that the mean of the percentage watched by students compared to the video progress, which is indicative of how much of the students are watching the videos to completion. From the trend lines on the graph, it is evident that the videos from week 2 were watched to completion the most in comparison to week 1 and 3, ranking rank 3 and 1 respectively. This is based off the assumption that the video stats data provided by FutureLearn does not contain students that watched the videos more than once. By assuming the videos were not watched multiple times by the users, the assumption of a higher portion of the students are watching the videos which allows for more straight forward comparison when  relating this data to the data from the question responses. This graph also allows us to see that there was a relatively large drop off in video completions, approximately 12.5%, in week 1 and 3 from 75% to 100%. 
 
-<!-- What this graph and data does not show, however, is how many students did watch any portion of the video.  -->
 
 ```{r, echo=FALSE}
 Grouped <- cbind(colMeans_vs_w1,colMeans_vs_w2$View_Percentage_Mean,colMeans_vs_w3$View_Percentage_Mean)
@@ -149,20 +148,43 @@ qr_table
 ```
 
 
-The above stacked bar chart shows the percentage of correct and incorrect answer against the week progression. From this graph, the data shows an increasing amount of incorrect results as the weeks progress. This could be a result of the course content becoming increasing more difficult as the weeks progress.
+The above stacked bar chart shows the percentage of correct and incorrect answer against the week progression. From this graph, the data shows an increasing amount of incorrect results as the weeks progress. This could be a result of the course content becoming increasing more difficult as the weeks progress. The percentage of incorrect answers across the three weeks seem to increase approximately 12% each week, however with the limited amount of data, it will be difficult to tell at which point this value will plateau as it is unreasonable to assume that the incorrect answers will just continue to increase at a rate of 12%.
 
-However, comparing this data to the previous plot, the data implies that the percentage of views at the video completion does not affect the results of the multiple choice question. There are a number of reasons as to why this may be the case. 
+However, comparing this data to the previous plot, the data implies that the percentage of views at the video completion does not affect the results of the multiple choice question. There are a number of reasons as to why this may be the case, one of which is that the videos are too difficult to understand. It is possible that within the course, the foundations of the course were not explained in a way in which a beginner will be able to pick up easily, as a result making the course content and videos difficult to understand.
 
-
-
-
+Another reason as to why this data implies that the percentage of views at video completion doesn't affect quiz outcome, is that although the videos are in the same weeks as the multiple choice questions, it does not cover what is asked during the multiple choice questions and is covered in another, non-video, part of the week. Without access to the actual course material, it will be difficult to determine if the content from the videos teach the students what they are being quizzed on which will affect this investigation.
 
 
+```{r, echo=FALSE}
+Week1F = function(){
+  return(sort(-table(df_qr_w1$learner_id))[1:5])
+}
+
+Week1F()*-1
+
+Week2F = function(){
+  return(sort(-table(df_qr_w2$learner_id))[1:5])
+}
+
+Week2F()*-1
+
+Week3F = function(){
+  return(sort(-table(df_qr_w3$learner_id))[1:5])
+}
+
+Week3F()*-1
+
+```
 
 
 
 
 
+
+
+
+
+<!-- What this graph and data does not show, however, is how many students did watch any portion of the video.  -->
 
 \newpage
 ## *Bibliography*
