@@ -7,3 +7,6 @@ Please ensure that the project file is saved in the Documents folder in your hom
 Navigate to the "src" folder in "CSC_8631_Analysis" and run the "01-Setup-Script.R" to set up the project
 This script will automatically set up the project in RStudio if you have the project folders set up in the correct directory
 
+A Report pdf is saved in the "reports" folder which documents the process and analysis.
+
+A critical reflection document is also saved in the "reports" folder. 
