@@ -23,6 +23,8 @@ P <-
 
 P
 
+ggsave("~/Documents/CSC_8631_Project/CSC_8631_Analysis/graphs/my_vs_plot.png", P)
+
 # Plot of Correct and Incorrect answers by Percentage against Week
 
 
@@ -37,32 +39,49 @@ QR <-
 
 QR    
 
+ggsave("~/Documents/CSC_8631_Project/CSC_8631_Analysis/graphs/my_qr_graph.png", QR)
 
 # Plot of frequency of incorrect results
 w1res_plot <-
   ggplot(data=w1res, aes(x=Num_Incorrect, y=Freq)) +
-    ggtitle("Frequency of Incorrect Results Week 1") +
-    labs(x="Number of Incorrect Results", y= "Frequency")+
-    geom_bar(stat="identity", fill="#08588D")+
-    theme_bw()
+  ggtitle("Frequency of Incorrect Results Week 1") +
+  labs(x="Number of Incorrect Results", y= "Frequency",caption="Graph 3")+
+  scale_y_continuous(limits = c(0,950))+
+  geom_bar(stat="identity", fill="#08588D")+
+  theme_bw()
 
 w1res_plot
+
+w1res_plot
+
+ggsave("~/Documents/CSC_8631_Project/CSC_8631_Analysis/graphs/my_w1res_plot.png", w1res_plot)
+
+
 
 w2res_plot <-
   ggplot(data=w2res, aes(x=Num_Incorrect, y=Freq)) +
   ggtitle("Frequency of Incorrect Results Week 2") +
-  labs(x="Number of Incorrect Results", y= "Frequency")+
+  labs(x="Number of Incorrect Results", y= "Frequency",caption="Graph 4")+
+  scale_y_continuous(limits = c(0,950))+
   geom_bar(stat="identity", fill="#08588D")+
   theme_bw()
 
 w2res_plot
 
+ggsave("~/Documents/CSC_8631_Project/CSC_8631_Analysis/graphs/my_w2res_plot.png", w2res_plot)
+
+
+
 w3res_plot <-
   ggplot(data=w3res, aes(x=Num_Incorrect, y=Freq)) +
   ggtitle("Frequency of Incorrect Results Week 3") +
-  labs(x="Number of Incorrect Results", y= "Frequency")+
+  labs(x="Number of Incorrect Results", y= "Frequency",caption="Graph 5")+    
+  scale_y_continuous(limits = c(0,950))+
   geom_bar(stat="identity", fill="#08588D")+
   theme_bw()
 
 w3res_plot
+
+ggsave("~/Documents/CSC_8631_Project/CSC_8631_Analysis/graphs/my_w3res_plot.png", w3res_plot)
+
 
