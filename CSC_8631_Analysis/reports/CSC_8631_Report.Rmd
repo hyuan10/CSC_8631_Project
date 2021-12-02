@@ -69,11 +69,11 @@ In addition to the data frames, a number of different values and variables were 
 
 \newpage
 
-## Analysis
+## Analysis and Results
 
 As the aim of this analysis is to explore is there is any correlation between time spent watching the course videos and the scores that the student receive against the multiple choice questions, it was decided that, in the first instance, a graph would be created to compare the percentage of video completed by the students against the portion of the video by week. This will allow for visual representation of how much the videos the students are completing and for comparison for the ratio of students that receive a correct mark.
 
-```{r ,echo=FALSE}
+```{r, Percentage of Views at Video Progress data ,echo=FALSE}
 
 colMeans_vs_w1 = data.frame(Percentage =c (5,25,50,75,100), "View_Percentage_Mean" = c(mean(df_vs_w1$viewed_5),mean(df_vs_w1$viewed_25),mean(df_vs_w1$viewed_50),mean(df_vs_w1$viewed_75),mean(df_vs_w1$viewed_100)))
 colMeans_vs_w2 = data.frame(Percentage =c (5,25,50,75,100), "View_Percentage_Mean" = c(mean(df_vs_w2$viewed_5),mean(df_vs_w2$viewed_25),mean(df_vs_w2$viewed_50),mean(df_vs_w2$viewed_75),mean(df_vs_w2$viewed_100)))
@@ -82,7 +82,7 @@ colMeans_vs_w3 = data.frame(Percentage =c (5,25,50,75,100), "View_Percentage_Mea
 
 ```
 
-```{r ,echo=FALSE}
+```{r, Percentage of Views at Video Progress Plot ,echo=FALSE}
 library(ggplot2)
 
 
@@ -108,16 +108,18 @@ P
 
 The plot above shows that the mean of the percentage watched by students compared to the video progress, which is indicative of how much of the students are watching the videos to completion. From the trend lines on the graph, it is evident that the videos from week 2 were watched to completion the most in comparison to week 1 and 3, ranking rank 3 and 1 respectively. This is based off the assumption that the video stats data provided by FutureLearn does not contain students that watched the videos more than once. By assuming the videos were not watched multiple times by the users, the assumption of a higher portion of the students are watching the videos which allows for more straight forward comparison when relating this data to the data from the question responses. This graph also allows us to see that there was a relatively large drop off in video completions, approximately 12.5%, in week 1 and 3 from 75% to 100%.
 
-```{r, echo=FALSE}
+
+
+```{r, Grouped Data, echo=FALSE}
 Grouped <- cbind(colMeans_vs_w1,colMeans_vs_w2$View_Percentage_Mean,colMeans_vs_w3$View_Percentage_Mean)
 colnames(Grouped) <- c("Video Progress", "Percentage Views W1", "Percentage Views W2", "Percentage Views W3")
 
 knitr::kable(Grouped, caption = "Input Data")
 ```
 
-The input data reaffirms and shows that there is has been a drop off in video completion in week 1 and 3 whereas the video completion stats remain high for week 2.
+The input data reaffirms and shows that there is has been a drop off in video completion in week 1 and 3 whereas the video completion stats remain high for week 2. What this graph and data doesn't show, however, is the number of individual students that watched the videos. In the above paragraph, the was an assumption made that is the videos were not watched multiple times by the users. This assumption was made so that the we allow for each view to be a unique individual. 
 
-```{r, echo=FALSE}
+```{r,QR data and Plot, echo=FALSE}
 qr_table_percent = data.frame(
                               Week = c(1,2,3,1,2,3),
                               Result_Percent = c(sum_w1_f,sum_w2_f,sum_w3_f,sum_w1_t,sum_w2_t,sum_w3_t),
@@ -136,7 +138,7 @@ QR <- ggplot(data=qr_table_percent, aes(x=Week, y=Result_Percent, fill=Result)) 
 QR    
 ```
 
-```{r, echo=FALSE}
+```{r, QR Data,echo=FALSE}
 knitr::kable(qr_table, caption = "Questions Response Data")
 ```
 
@@ -170,8 +172,10 @@ Table 3: Most Incorrect Responses by Individuals
 |      | 39               |
 |      | 38               |
 
-The above table shows the highest number of incorrect responses by individuals. This data shows us that in week 1 and 3, individuals that were repeatedly getting incorrect values were getting questions incorrect much more frequently than in week 2. This may be an indication that the higher percentage of completion of videos as shown in Graph 1 has a positive effect on the individual question responses. 
-```{r, fig.height = 4, echo=FALSE}
+The above table shows the highest number of incorrect responses by individuals per week. This data shows us that in week 1 and 3, individuals that were repeatedly getting incorrect values were getting questions incorrect much more frequently than in week 2. This may be an indication that the higher percentage of completion of videos as shown in Graph 1 has a positive effect on the individual question responses. 
+
+
+```{r,Frequency of incorrect results plots, fig.height = 3.5, echo=FALSE}
 w1res_plot <-
   ggplot(data=w1res, aes(x=Num_Incorrect, y=Freq)) +
     ggtitle("Frequency of Incorrect Results Week 1") +
@@ -204,7 +208,23 @@ w3res_plot
 
 ```
 
-Graphs 3, 4 and 5 visualises the range of incorrect results and the frequency of which they occur. Assuming each individual attempts the multiple choice question until they get the correct answer, we are able to see, on average, the number of attampt the individuals take. With week 1 and 3, we see a positively skewed bell curve which indicates that a large proportion of the users are receiving getting the correct mark before the median of results. This could be a result of the 
+Graphs 3, 4 and 5 visualises the range of incorrect results and the frequency of which they occur. Assuming each individual attempts the multiple choice question until they get the correct answer, we are able to see, on average, the number of attempt the individuals take. With week 1 and 3, we see a positively skewed bell curve which indicates that a large proportion of the users are receiving the correct mark before the median of results. This indicates that a small number of students are receiving a large number of the incorrect scores which could be affecting Graph 2 as the small group of people are receiving a large number of incorrect answers. 
+
+From all three plots, the most frequent value of the number of incorrect results sits around 6-8. This suggest that the most of the students get the correct multiple choice answer relatively quickly in comparison to the students that fall in the end of the plot.
+
+In Graph 3, most of the students receive a correct score in the multiple choice questions before the median value which corroborates with the Graph 2 plot showing week 1 data with a low number of incorrect scores with very few students with a large number of incorrect scores.
+
+It could be argued that the small range of number of incorrect results in Graph 4 is a direct correlation to the percentage of view at video completion in Graph 1 as there is a higher number of people watching the videos to completion which results in a smaller number of students getting a large number of incorrect results. However, much like the results from the data in Graph 2, it is difficult to determine if the course content from the videos is having a direct impact to the scores.  
+
+The data in Graph 5 visualises that the peak of the data is not as high as the previous two plots, with the frequency slowly and gradually decreasing which suggest that the number of students getting incorrect values is more spread out.  This confirms the week 3 column in Graph 2 as it shows a larger proportion of students with incorrect answers which increases the ratio of correct to incorrect answers in the column.
+
+## Summary 
+
+With the aim of this investigation to explore if there is any correlation between time spent watching the course videos and the scores received by students on the multiple choice questions, the video stat data sets and the question response data were analysed and compared to explore this. The first graph shows the percentage of views at video progress vs the video progress itself which allowed for the visualisation of the time spent watching the videos by the students. This showed that the students watched, to completion, week 2 videos the most which the videos and week 1 and 3 were comparatively less. The second graph created was to visualise the ratio of incorrect and correct results the students received between the 3 weeks. The results in this stacked bar chart showed an increasing trend of incorrect values by approximately 12% each week. The data found here would suggest that the video completions did not have an effect on the results, however, it is possible that the video content is not directly linked to the multiple choice questions. It is also possible that the students are building up their foundations of the course and therefore will take time to get to grips with the content as it becomes increasingly hard. 
+
+A table listing the value of most incorrect results showed that in week 1 and 3, the top 5 results were much higher than that of week 2. This data suggest that the video completion stats from Graph 1 has a positive effect on the students, however, without direct access to the videos and questions, it would be difficult to determine.
+
+Lastly, 3 bar graphs were created to show the frequency of students with the number of incorrect results. The all three graphs on a whole, they showed a positively skewed plot which indicates most students completed the multiple choice questions before the median value of attempts. Graph 3 and 5 had a much larger range of incorrect answers, as shown by the graphs and table 3, whereas Graph 4 has a much lower range. This indicates that most students were getting the correct answer earlier than they were in week 1 and 3. This data complies with the original investigation of exploring the time spent watching videos with question output as the week 2 videos were watched to completion the most and the results suggest the students performed the best in the week 2 quiz.
 
 
 
@@ -216,13 +236,6 @@ Graphs 3, 4 and 5 visualises the range of incorrect results and the frequency of
 
 
 
-
-
-
-
-
-
-<!-- What this graph and data does not show, however, is how many students did watch any portion of the video.  -->
 
 \newpage
 
