@@ -170,7 +170,57 @@ Table 3: Most Incorrect Responses by Individuals
 |      | 39               |
 |      | 38               |
 
-The above table shows the highest number of incorrect responses by individuals. This data shows us that in week 1 and 3, individuals that were repeatedly getting incorrect values were getting questions incorrect much more frequently than in week 2. This may be an indication that the higher percentage of completion of videos as shown in Graph 1 has a positive effect on the individual question responses.
+The above table shows the highest number of incorrect responses by individuals. This data shows us that in week 1 and 3, individuals that were repeatedly getting incorrect values were getting questions incorrect much more frequently than in week 2. This may be an indication that the higher percentage of completion of videos as shown in Graph 1 has a positive effect on the individual question responses. 
+```{r, fig.height = 4, echo=FALSE}
+w1res_plot <-
+  ggplot(data=w1res, aes(x=Num_Incorrect, y=Freq)) +
+    ggtitle("Frequency of Incorrect Results Week 1") +
+    labs(x="Number of Incorrect Results", y= "Frequency",caption="Graph 3")+
+    scale_y_continuous(limits = c(0,950))+
+    geom_bar(stat="identity", fill="#08588D")+
+    theme_bw()
+
+w1res_plot
+
+w2res_plot <-
+  ggplot(data=w2res, aes(x=Num_Incorrect, y=Freq)) +
+  ggtitle("Frequency of Incorrect Results Week 2") +
+  labs(x="Number of Incorrect Results", y= "Frequency",caption="Graph 4")+
+  scale_y_continuous(limits = c(0,950))+
+  geom_bar(stat="identity", fill="#08588D")+
+  theme_bw()
+
+w2res_plot
+
+w3res_plot <-
+  ggplot(data=w3res, aes(x=Num_Incorrect, y=Freq)) +
+  ggtitle("Frequency of Incorrect Results Week 3") +
+  labs(x="Number of Incorrect Results", y= "Frequency",caption="Graph 5")+    
+  scale_y_continuous(limits = c(0,950))+
+  geom_bar(stat="identity", fill="#08588D")+
+  theme_bw()
+
+w3res_plot
+
+```
+
+Graphs 3, 4 and 5 visualises the range of incorrect results and the frequency of which they occur. Assuming each individual attempts the multiple choice question until they get the correct answer, we are able to see, on average, the number of attampt the individuals take. With week 1 and 3, we see a positively skewed bell curve which indicates that a large proportion of the users are receiving getting the correct mark before the median of results. This could be a result of the 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- What this graph and data does not show, however, is how many students did watch any portion of the video.  -->
 
