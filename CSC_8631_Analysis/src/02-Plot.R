@@ -52,9 +52,8 @@ w1res_plot <-
 
 w1res_plot
 
-w1res_plot
-
 ggsave("~/Documents/CSC_8631_Project/CSC_8631_Analysis/graphs/my_w1res_plot.png", w1res_plot)
+
 
 
 
