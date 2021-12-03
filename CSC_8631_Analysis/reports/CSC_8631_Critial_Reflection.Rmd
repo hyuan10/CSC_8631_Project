@@ -1,0 +1,46 @@
+---
+title: "Critial Reflection Report"
+author: "Harvey Yuan 0077439"
+date: "02/12/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir= normalizePath('..'))
+```
+
+
+**Describe Events**
+
+As this assignment was to create a data analysis pipeline to query and gain insight to the data set provided, I firstly decided to look at the data provided to us as a whole and try to understand what was provided. I opened all of the data sets by run, and tried to understand what was provided to us and found that some data sets within the run was empty. From here, I found that the video stats data, question response data and enrolment data to be complete for runs 3 to 7, which totaled 15 data sets. 
+
+The questions I decided to propose was to see if there were any correlation between time spent watching the course videos and scores that the students received for the multiple choice questions within the weeks collectively as a group. The reasoning behind this was to allow for course providers to use this information and adjust the number of videos used accordingly.
+
+In the first instance, I split the data up by categories and combined them together to to get a merged data set for each category. For the data sets that needed additional cleaning, such as the video stats data, I created additional data frames and applied the appropriate functions to allow for analysis and investigation. 
+
+With the combined data, I plotted the video stats, ratio of correct and incorrect answers and frequency of incorrect results and analysed the data. 
+
+**Evaluation**
+
+Looking back, I think I knew what question I wanted to investigate early on, however, had difficulty working out how to visualise and convey the data across. Upon realising which plots I needed to create, I feel like the creation went smoothly even with my limited R experience.
+
+**Bring Out Emotions**
+
+Having never used any programming language in the past, getting to grips with the language and being able to write something that worked in a which which I wanted and expected it to was incredibly gratifying, however, there was a part of me that was afraid I would be unable to do something I wanted which would stop me from progressing without help. 
+
+**Review in Light of Previous Experience**
+
+The last time I felt out of my comfort zone with a project would be during my time as a Project Manager leading my first project between multiple teams, both internally and externally. I was anxious I would be unable to run the project efficiently and smoothly but quickly realised I was the PM because although I was inexperienced as a PM, I had expert knowledge of the software we would be implementing for our client which meant the only support I needed was with the planning aspect.
+
+**Identify Lessons Learned**
+
+An important lesson I learned throughout this project was keeping the analysis and the question in line with each other. There were many times I would start to write a script but my thoughts whilst witting the script would spiral and try to add additional aspects into the script to answer a question that was not proposed.
+
+**Establish follow up actions**
+
+After completing the project, I took time to consider the scripts that I wrote for the project both by myself and with the help of the course material. I realised that I could have accomplished a lot of what I wanted to do without creating so many individual data frames for columns. If I were to do this again, I would consider writing analysis scripts with less data frames and scripts which included the columns in the final data frame.
+
+**Feedback on those actions**
+
+I plan to further my studies by using the experience I gained during this assessment and combining it with everyday practice.
