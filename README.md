@@ -1,6 +1,6 @@
 Read me file for CSC 8631 Project
 
-The aim of this file is to see if there is any correlation between the time spent watch the course videos and the answering of the questions presented.
+The aim of this file is to see if there is any correlation between the time spent watch the course videos and the answering of the questions presented. This is to allow for course providers to use the analysis to help improve the course. 
 
 Please ensure that the project file is saved in the Documents folder in your home directory (<root>\Users\<Username>\Documents)
 
